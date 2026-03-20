@@ -46,7 +46,7 @@ Question:
 
 Answer:"""
     response = client.chat.completions.create(
-        model="google/gemma-3-4b-it:free",
+        model="meta-llama/llama-3.3-8b-instruct:free",
         messages=[{"role": "user", "content": prompt}]
     )
     return response.choices[0].message.content
