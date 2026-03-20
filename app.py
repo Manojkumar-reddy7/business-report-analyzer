@@ -1,5 +1,4 @@
 import streamlit as st
-st.set_option('server.maxUploadSize', 200)
 from PyPDF2 import PdfReader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from openai import OpenAI
