@@ -46,7 +46,7 @@ Question:
 
 Answer:"""
     response = client.chat.completions.create(
-        model="deepseek/deepseek-r1-distill-llama-70b:free",
+        model="meta-llama/llama-3.3-8b-instruct:free",
         messages=[{"role": "user", "content": prompt}]
     )
     return response.choices[0].message.content
