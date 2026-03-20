@@ -16,19 +16,6 @@ client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
     api_key=OPENROUTER_API_KEY
 )
-```
-
-Save — **Ctrl + S**
-
----
-
-## Step 2 — Confirm Secret is Set Correctly on Streamlit
-
-Go to your Streamlit app → **Manage app** → **Settings** → **Secrets**
-
-Make sure it looks **exactly** like this:
-```
-OPENROUTER_API_KEY = "sk-or-v1-yourfullkeyhere"
 
 st.set_page_config(page_title="Business Report Analyzer", page_icon="📊", layout="wide")
 st.title("📊 AI-Powered Business Report Analyzer")
@@ -58,7 +45,6 @@ Question:
 {question}
 
 Answer:"""
-
     response = client.chat.completions.create(
         model="google/gemma-3-4b-it:free",
         messages=[{"role": "user", "content": prompt}]
@@ -85,7 +71,6 @@ if st.session_state.get("report_processed"):
     st.markdown(f"**Analyzing:** `{st.session_state['report_name']}`")
     st.divider()
     context = " ".join(st.session_state["chunks"][:3])
-
     st.subheader("⚡ Auto-Generated Insights")
     if st.button("Generate Key Insights", use_container_width=True):
         questions = [
@@ -108,7 +93,6 @@ if st.session_state.get("report_processed"):
                 st.markdown(f"### {label}")
                 st.markdown(answer)
                 st.divider()
-
     st.subheader("💬 Ask Your Own Question")
     user_question = st.text_input("Type your question about the report")
     if user_question:
@@ -116,13 +100,12 @@ if st.session_state.get("report_processed"):
             answer = get_answer(context, user_question)
         st.markdown("### Answer")
         st.markdown(answer)
-
 else:
     st.info("👈 Upload a PDF report from the sidebar and click 'Process Report' to get started.")
     st.markdown("""
     ### What this tool does:
     - 📄 **Extracts** text from any business or annual report PDF
-    - 🤖 **Analyzes** it using Llama 3.1 AI
+    - 🤖 **Analyzes** it using AI
     - 💡 **Generates** instant insights on financials, risks, strategy
     - 💬 **Answers** any custom question you ask about the report
     """)
