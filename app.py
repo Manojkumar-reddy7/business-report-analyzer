@@ -46,7 +46,7 @@ Question:
 
 Answer:"""
     response = client.chat.completions.create(
-        model="nvidia/nemotron-super-49b-v1:free",
+        model="arcee-ai/arcee-trinity-large:free",
         messages=[{"role": "user", "content": prompt}]
     )
     return response.choices[0].message.content
