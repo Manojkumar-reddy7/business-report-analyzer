@@ -6,12 +6,29 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY") or st.secrets.get("OPENROUTER_API_KEY")
+
+try:
+    OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]
+except:
+    OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
     api_key=OPENROUTER_API_KEY
 )
+```
+
+Save — **Ctrl + S**
+
+---
+
+## Step 2 — Confirm Secret is Set Correctly on Streamlit
+
+Go to your Streamlit app → **Manage app** → **Settings** → **Secrets**
+
+Make sure it looks **exactly** like this:
+```
+OPENROUTER_API_KEY = "sk-or-v1-yourfullkeyhere"
 
 st.set_page_config(page_title="Business Report Analyzer", page_icon="📊", layout="wide")
 st.title("📊 AI-Powered Business Report Analyzer")
