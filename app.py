@@ -46,7 +46,7 @@ Question:
 
 Answer:"""
     response = client.chat.completions.create(
-        model="meta-llama/llama-3.3-8b-instruct:free",
+        model="nvidia/nemotron-super-49b-v1:free",
         messages=[{"role": "user", "content": prompt}]
     )
     return response.choices[0].message.content
