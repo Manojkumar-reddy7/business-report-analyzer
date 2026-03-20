@@ -70,7 +70,7 @@ with st.sidebar:
 if st.session_state.get("report_processed"):
     st.markdown(f"**Analyzing:** `{st.session_state['report_name']}`")
     st.divider()
-    context = " ".join(st.session_state["chunks"][:3])
+    context = " ".join(st.session_state["chunks"][:10])
     st.subheader("⚡ Auto-Generated Insights")
     if st.button("Generate Key Insights", use_container_width=True):
         questions = [
