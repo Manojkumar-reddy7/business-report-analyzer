@@ -46,7 +46,7 @@ Question:
 
 Answer:"""
     response = client.chat.completions.create(
-        model="arcee-ai/arcee-trinity-large:free",
+        model="openrouter/auto",
         messages=[{"role": "user", "content": prompt}]
     )
     return response.choices[0].message.content
